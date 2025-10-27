@@ -1,0 +1,244 @@
+presentation_title: 'Creating Facebook Ads: A Complete Guide'
+subtitle: Step-by-Step Tutorial Using Meta Ads Manager
+total_slides: 16
+slides:
+- slide_number: 1
+  type: title
+  title: Creating Facebook Ads
+  subtitle: A Complete Guide Using Meta Ads Manager
+  notes: Title slide with clean, professional design
+- slide_number: 2
+  type: content
+  title: Getting Started with Meta Ads Manager
+  bullet_points:
+  - 'Access Meta Ads Manager at: adsmanager.facebook.com'
+  - 'Initial Account Setup Requirements:'
+  - '  - Add payment method (can be skipped initially)'
+  - '  - Create and link a Facebook Page'
+  - '  - Add and verify phone number'
+  image: "META HOME MANAGER.png"
+- slide_number: 3
+  type: content
+  title: 'Step 1: Account Setup Overview'
+  bullet_points:
+  - Payment Method Setup
+  - '  - Add preferred payment option'
+  - '  - Can skip and add later'
+  - '  - No charges until ads go live'
+  - ''
+  - Facebook Page Creation
+  - '  - Required for running most ads'
+  - '  - Represents your brand/business'
+  - ''
+  - Phone Number Verification
+  - '  - Must be verified before running ads'
+  image_placeholder: Account setup screen
+  notes: Show the initial setup screen
+- slide_number: 4
+  type: content
+  title: 'Step 2: Creating Your Facebook Page'
+  bullet_points:
+  - 'Page Name: Use your brand or business name'
+  - ''
+  - 'Category: Select up to 3 relevant categories'
+  - '  Example: Education website, Digital creator'
+  - ''
+  - 'Profile Picture: Add logo or brand image'
+  - ''
+  - 'Bio: Describe your business (100 chars max)'
+  - '  Example: ''We help you understand ECOMMERCE.'''
+  image_placeholder: Page creation form screenshot
+  notes: Include the Create Page form from PDF
+- slide_number: 5
+  type: content
+  title: 'Step 3: AI-Powered Automatic Adjustments'
+  bullet_points:
+  - 'Meta''s AI optimizes your ads automatically:'
+  - ''
+  - 'Campaign Structure: Combine or pause underperforming ads'
+  - 'Audience: Adjust targeting for better reach'
+  - 'Creative & Format: Enhance visuals and text'
+  - 'Delivery & Engagement: Optimize placements'
+  - 'Spend & Schedule: Adjust bids (budget protected)'
+  image_placeholder: Automatic adjustments settings screen
+  notes: Show the Manage automatic adjustments interface
+- slide_number: 6
+  type: content
+  title: 'Step 4: Verification Complete'
+  bullet_points:
+  - 'Setup Status:'
+  - ''
+  - '✓ Payment Method: Skipped (add later)'
+  - ''
+  - '✓ Facebook Page: Access confirmed'
+  - ''
+  - '✓ Phone Number: Verified'
+  - ''
+  - Ready to create your first ad!
+  image_placeholder: Verification complete screen
+  notes: Show completion status
+- slide_number: 7
+  type: content
+  title: 'Step 5: Choose Campaign Objective'
+  bullet_points:
+  - 'Campaign Objective: Awareness'
+  - ''
+  - Brand Awareness & Reach
+  - '  - Maximize visibility'
+  - '  - Build brand recognition'
+  - '  - Reach more people'
+  - ''
+  - 'Alternative: Engagement'
+  - '  - Video views'
+  - '  - Community interaction'
+  image_placeholder: Campaign objective selection screen
+  notes: Show the New Awareness Campaign interface
+- slide_number: 8
+  type: content
+  title: 'Step 6: Select Ad Format'
+  bullet_points:
+  - 'Ad Creative Layouts:'
+  - ''
+  - Single Image or Video
+  - '  - Simple, focused messaging'
+  - ''
+  - Carousel
+  - '  - Multiple scrollable images'
+  - ''
+  - Collection
+  - '  - Immersive product showcase'
+  - ''
+  - Multi-advertiser ads for increased reach
+  image_placeholder: Ad format selection interface
+  notes: Show format options from PDF
+- slide_number: 9
+  type: content
+  title: 'Step 7: Media Crop & Placements'
+  bullet_points:
+  - 'Optimize images for different platforms:'
+  - ''
+  - Square Format (1:1) - Feed posts
+  - ''
+  - Vertical Format (9:16) - Stories
+  - ''
+  - Horizontal Format (1.91:1) - Desktop
+  - ''
+  - AI-powered crop optimization with manual editing
+  image_placeholder: Media crop interface with three format previews
+  notes: Key screenshot showing the crop tool
+- slide_number: 10
+  type: content
+  title: 'Step 8: Ad Copy & Call-to-Action'
+  bullet_points:
+  - 'Primary Text: Main ad message'
+  - ''
+  - 'Headline: Attention-grabbing title'
+  - '  Example: ''EC learning helps you understand E-commerce'''
+  - ''
+  - 'Description: Additional details (optional)'
+  - ''
+  - 'Call to Action:'
+  - '  Learn More | Shop Now | Sign Up'
+  - ''
+  - 'Add Destination: Website URL'
+  image_placeholder: Ad preview with text fields
+  notes: Show ad preview with Facebook and Instagram views
+- slide_number: 11
+  type: content
+  title: 'Step 9: Partnership Ads (Optional)'
+  bullet_points:
+  - Collaborate with creators or brands
+  - ''
+  - 'Benefits:'
+  - '  - Leverage signals from both accounts'
+  - '  - Improve campaign performance'
+  - '  - Expand to combined audiences'
+  - '  - Share performance metrics'
+  - ''
+  - 'Setup: Enable toggle and enter partner code'
+  image_placeholder: Partnership ad settings
+  notes: Show partnership ad interface
+- slide_number: 12
+  type: content
+  title: 'Step 10: WhatsApp Integration'
+  bullet_points:
+  - 'Enable direct customer messaging:'
+  - ''
+  - 'Connect WhatsApp for:'
+  - '  - Instant messaging from ads'
+  - '  - WhatsApp button on landing page'
+  - '  - Faster response times'
+  - '  - Better lead capture'
+  - ''
+  - Browser add-on options available
+  image_placeholder: WhatsApp connection interface
+  notes: Show browser add-ons with WhatsApp option
+- slide_number: 13
+  type: content
+  title: 'Step 11: Location & Currency Setup'
+  bullet_points:
+  - 'Configure Regional Settings:'
+  - ''
+  - 'Country/Region: Egypt'
+  - ''
+  - 'Currency: Egyptian Pound (EGP)'
+  - ''
+  - 'Time Zone: Cairo (GMT+03:00)'
+  - ''
+  - 'Note: Cannot be changed after setup'
+  image_placeholder: Location and currency selection screen
+  notes: Show regional settings interface
+- slide_number: 14
+  type: content
+  title: 'Step 12: Payment Configuration'
+  bullet_points:
+  - 'Business Details:'
+  - '  - Location: Egypt'
+  - '  - Currency: Egyptian Pound (EGP)'
+  - '  - Tax ID/Address: Optional'
+  - ''
+  - 'Payment Methods:'
+  - '  • VISA Card'
+  - '  • Fawry / فوري'
+  - '  • Local Cards'
+  - '  • Ad credits'
+  - ''
+  - Secure payment storage
+  image_placeholder: Payment methods screen
+  notes: Show payment options with Egyptian methods
+- slide_number: 15
+  type: content
+  title: Ready to Publish!
+  bullet_points:
+  - 'Final Checklist:'
+  - ''
+  - ✓ Account setup complete
+  - ✓ Page created and verified
+  - ✓ Campaign objective selected
+  - ✓ Ad format and creative ready
+  - ✓ Copy and CTA configured
+  - ✓ Payment method added
+  - ''
+  - Click 'Publish' to launch!
+  - ''
+  - Review Terms and Conditions
+  image_placeholder: Publish button interface
+  notes: Show final publishing screen
+- slide_number: 16
+  type: summary
+  title: Key Takeaways
+  bullet_points:
+  - 1. Set up account with Page and phone verification
+  - ''
+  - 2. Choose Awareness objective for brand reach
+  - ''
+  - 3. Select appropriate ad format
+  - ''
+  - 4. Optimize images for multiple placements
+  - ''
+  - 5. Write compelling copy with clear CTA
+  - ''
+  - 6. Enable WhatsApp for direct engagement
+  - ''
+  - 7. Configure payment and launch campaign
+  notes: Summary slide with key points

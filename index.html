@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Facebook Ads - Complete Guide</title>
+    <style>
+        :root {
+            --fb-blue: #1877F2;
+            --fb-green: #42B72A;
+            --bg-white: #FFFFFF;
+            --text-dark: #1C1E21;
+            --text-secondary: #65676B;
+            --border-light: #E4E6EB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .presentation-container {
+            width: 100%;
+            max-width: 1200px;
+            background: var(--bg-white);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .slide-container {
+            position: relative;
+            padding: 60px 80px;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide {
+            display: none;
+            flex-direction: column;
+            flex: 1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        /* Title Slide */
+        .slide.title-slide {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--fb-blue) 0%, #4c9aff 100%);
+            color: white;
+        }
+
+        .slide.title-slide h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .slide.title-slide .subtitle {
+            font-size: 28px;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        /* Content Slides */
+        .slide-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--fb-blue);
+            margin-bottom: 32px;
+            line-height: 1.2;
+        }
+
+        .slide-subtitle {
+            font-size: 24px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .bullet-list li {
+            font-size: 22px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            padding-left: 36px;
+            position: relative;
+        }
+
+        .bullet-list li:before {
+            content: "●";
+            color: var(--fb-blue);
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .bullet-list li.indent {
+            padding-left: 70px;
+            font-size: 20px;
+        }
+
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .section-card {
+            background: #F7F9FC;
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .section-card h3 {
+            color: var(--fb-blue);
+            font-size: 22px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .section-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section-card li {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .section-card li:before {
+            content: "✓";
+            color: var(--fb-green);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .note {
+            background: #FFF3CD;
+            border-left: 4px solid #FFC107;
+            padding: 16px 20px;
+            margin-top: 24px;
+            border-radius: 6px;
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        .screenshot-placeholder {
+            background: #F0F2F5;
+            border: 2px dashed var(--border-light);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 18px;
+            margin-top: 20px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            font-size: 24px;
+            padding: 16px;
+            margin-bottom: 12px;
+            background: #F0F2F5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            color: white;
+            background: var(--fb-green);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .ready-text {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--fb-green);
+            margin-top: 32px;
+        }
+
+        .format-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .format-card {
+            background: white;
+            border: 2px solid var(--fb-blue);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .format-card h4 {
+            color: var(--fb-blue);
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .format-card p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .takeaways-list {
+            counter-reset: takeaway;
+            list-style: none;
+            padding: 0;
+        }
+
+        .takeaways-list li {
+            font-size: 22px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            padding-left: 50px;
+            position: relative;
+        }
+
+        .takeaways-list li:before {
+            counter-increment: takeaway;
+            content: counter(takeaway);
+            background: var(--fb-blue);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Navigation */
+        .navigation {
+            background: #F7F9FC;
+            border-top: 1px solid var(--border-light);
+            padding: 24px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--fb-blue);
+            color: white;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: #1461cc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+        }
+
+        .nav-btn:disabled {
+            background: #E4E6EB;
+            color: #BCC0C4;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .slide-counter .current {
+            color: var(--fb-blue);
+            font-size: 22px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .slide-container {
+                padding: 40px 30px;
+                min-height: 500px;
+            }
+
+            .slide.title-slide h1 {
+                font-size: 36px;
+            }
+
+            .slide.title-slide .subtitle {
+                font-size: 20px;
+            }
+
+            .slide-title {
+                font-size: 32px;
+            }
+
+            .bullet-list li {
+                font-size: 18px;
+            }
+
+            .sections-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navigation {
+                padding: 16px 20px;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slide-container">
+            <!-- Slide 1: Title -->
+            <div class="slide title-slide active" data-slide="1">
+                <h1>Creating Facebook Ads</h1>
+                <p class="subtitle">A Complete Guide Using Meta Ads Manager</p>
+            </div>
+
+            <!-- Slide 2: Getting Started -->
+            <div class="slide" data-slide="2">
+                <h2 class="slide-title">Getting Started with Meta Ads Manager</h2>
+                <div class="content">
+                    <ul class="bullet-list">
+                        <li>Access Meta Ads Manager at: <strong>adsmanager.facebook.com</strong></li>
+                        <li>Initial Account Setup Requirements:</li>
+                        <li class="indent">Add payment method (can be skipped initially)</li>
+                        <li class="indent">Create and link a Facebook Page</li>
+                        <li class="indent">Add and verify phone number</li>
+                    </ul>
+                    <div class="note">
+                        💡 Payment can be added later when ready to publish
+                    </div>
+                    <div class="screenshot-placeholder">
+                        <img src="META HOME MANAGER.png" width="100%" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Account Setup -->
+            <div class="slide" data-slide="3">
+                <h2 class="slide-title">Step 1: Account Setup Overview</h2>
+                <div class="content">
+                    <div class="sections-grid">
+                        <div class="section-card">
+                            <h3>1. Payment Method Setup</h3>
+                            <ul>
+                                <li>Add preferred payment option</li>
+                                <li>Can skip and add later</li>
+                                <li>No charges until ads go live</li>
+                            </ul>
+                        </div>
+                        <div class="section-card">
+                            <h3>2. Facebook Page Creation</h3>
+                            <ul>
+                                <li>Required for running most ads</li>
+                                <li>Represents your brand/business</li>
+                            </ul>
+                        </div>
+                        <div class="section-card">
+                            <h3>3. Phone Number Verification</h3>
+                            <ul>
+                                <li>Must be verified before running ads</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="screenshot-placeholder">
+                        <img src="confirmed.png" width="100%" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Creating Page -->
+            <div class="slide" data-slide="4">
+                <h2 class="slide-title">Step 2: Creating Your Facebook Page</h2>
+                <div class="content">
+                    <ul class="bullet-list">
+                        <li><strong>Page Name:</strong> Use your brand or business name</li>
+                        <li><strong>Category:</strong> Select up to 3 relevant categories<br>
+                            <span style="color: var(--text-secondary); font-size: 18px;">Example: Education website, Digital creator</span></li>
+                        <li><strong>Profile Picture:</strong> Add logo or brand image</li>
+                        <li><strong>Bio:</strong> Describe your business (100 chars max)<br>
+                            <span style="color: var(--text-secondary); font-size: 18px;">Example: "We help you understand ECOMMERCE."</span></li>
+                    </ul>
+                    <div class="screenshot-placeholder">
+                        <img src="page_creation.png" width="100%" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: AI Optimization -->
+            <div class="slide" data-slide="5">
+                <h2 class="slide-title">Step 3: AI-Powered Automatic Adjustments</h2>
+                <p class="slide-subtitle">Meta's AI optimizes your ads automatically:</p>
+                <div class="content">
+                    <ul class="bullet-list">
+                        <li><strong>Campaign Structure:</strong> Combine or pause underperforming ads</li>
+                        <li><strong>Audience:</strong> Adjust targeting for better reach</li>
+                        <li><strong>Creative &amp; Format:</strong> Enhance visuals and text</li>
+                        <li><strong>Delivery &amp; Engagement:</strong> Optimize placements</li>
+                        <li><strong>Spend &amp; Schedule:</strong> Adjust bids (budget protected)</li>
+                    </ul>
+                    <div class="screenshot-placeholder">
+                        <img src="A.I.png" width="100%" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Verification -->
+            <div class="slide" data-slide="6">
+                <h2 class="slide-title">Step 4: Verification Complete</h2>
+                <div class="content">
+                    <ul class="checklist">
+                        <li>Payment Method: Skipped (add later)</li>
+                        <li>Facebook Page: Access confirmed</li>
+                        <li>Phone Number: Verified</li>
+                    </ul>
+                    <p class="ready-text">✨ Ready to create your first ad! ✨</p>
+                    <div class="screenshot-placeholder">
+                        <img src="phone.png" width="100%" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Campaign Objective -->
+            <div class="slide" data-slide="7">
+                <h2 class="slide-title">Step 5: Choose Campaign Objective</h2>
+                <p class="slide-subtitle">Campaign Objective: Awareness</p>
+                <div class="content">
+                    <div class="sections-grid">
+                        <div class="section-card">
+                            <h3>1. Brand Awareness &amp; Reach</h3>
+                            <ul>
+                                <li>Maximize visibility</li>
+                                <li>Build brand recognition</li>
+                                <li>Reach more people</li>
+                            </ul>
+                        </div>
+                        <div class="section-card">
+                            <h3>2. Alternative: Engagement</h3>
+                            <ul>
+                                <li>Video views</li>
+                                <li>Community interaction</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="screenshot-placeholder">
+                        <img src="awarness.png" width="100%" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: Ad Format -->
+            <div class="slide" data-slide="8">
+                <h2 class="slide-title">Step 6: Select Ad Format</h2>
+                <div class="content">
+                    <div class="format-grid">
+                        <div class="format-card">
+                            <h4>📷 Single Image or Video</h4>
+                            <p>Simple, focused messaging</p>
+                        </div>
+                        <div class="format-card">
+                            <h4>🎠 Carousel</h4>
+                            <p>Multiple scrollable images</p>
+                        </div>
+                        <div class="format-card">
+                            <h4>🛍️ Collection</h4>
+                            <p>Immersive product showcase</p>
+                        </div>
+                    </div>
+                    <div class="note" style="margin-top: 32px;">
+                        💡 Additional: Multi-advertiser ads for increased reach
+                    </div>
+                    <div class="screenshot-placeholder">
+                        <img src="ad format.png" width="100%" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9: Media Crop -->
+            <div class="slide" data-slide="9">
+                <h2 class="slide-title">Step 7: Media Crop &amp; Placements</h2>
+                <p class="slide-subtitle">Optimize images for different platforms:</p>
+                <div class="content">
+                    <div class="sections-grid">
+                        <div class="section-card">
+                            <h3>Square Format (1:1)</h3>
+                            <ul>
+                                <li>Feed posts</li>
+                            </ul>
+                        </div>
+                        <div class="section-card">
+                            <h3>Vertical Format (9:16)</h3>
+                            <ul>
+                                <li>Stories</li>
+                            </ul>
+                        </div>
+                        <div class="section-card">
+                            <h3>Horizontal Format (1.91:1)</h3>
+                            <ul>
+                                <li>Desktop</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="note" style="margin-top: 24px;">
+                        🤖 AI-powered crop optimization with manual editing available
+                    </div>
+                    <div class="screenshot-placeholder">
+                        <img src="crop_image.png" width="100%" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 10: Ad Copy -->
+            <div class="slide" data-slide="10">
+                <h2 class="slide-title">Step 8: Ad Copy &amp; Call-to-Action</h2>
+                <div class="content">
+                    <ul class="bullet-list">
+                        <li><strong>Primary Text:</strong> Main ad message</li>
+                        <li><strong>Headline:</strong> Attention-grabbing title<br>
+                            <span style="color: var(--text-secondary); font-size: 18px;">Example: "EC learning helps you understand E-commerce"</span></li>
+                        <li><strong>Description:</strong> Additional details (optional)</li>
+                        <li><strong>Call to Action:</strong> Learn More | Shop Now | Sign Up</li>
+                        <li><strong>Add Destination:</strong> Website URL</li>
+                    </ul>
+                    <div class="screenshot-placeholder">
+                        <img src="ad preview.png" width="100%" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 11: Partnership -->
+            <div class="slide" data-slide="11">
+                <h2 class="slide-title">Step 9: Partnership Ads (Optional)</h2>
+                <p class="slide-subtitle">Collaborate with creators or brands</p>
+                <div class="content">
+                    <ul class="bullet-list">
+                        <li>Leverage signals from both accounts</li>
+                        <li>Improve campaign performance</li>
+                        <li>Expand to combined audiences</li>
+                        <li>Share performance metrics</li>
+                    </ul>
+                    <div class="note" style="margin-top: 24px;">
+                        🔗 Setup: Enable toggle and enter partner code
+                    </div>
+                    <div class="screenshot-placeholder">
+                        <img src="partnership.png" width="100%" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 12: WhatsApp -->
+            <div class="slide" data-slide="12">
+                <h2 class="slide-title">Step 10: WhatsApp Integration</h2>
+                <p class="slide-subtitle">Enable direct customer messaging:</p>
+                <div class="content">
+                    <ul class="bullet-list">
+                        <li>Instant messaging from ads</li>
+                        <li>WhatsApp button on landing page</li>
+                        <li>Faster response times</li>
+                        <li>Better lead capture</li>
+                    </ul>
+                    <div class="note" style="margin-top: 24px;">
+                        💬 Browser add-on options available
+                    </div>
+                    <div class="screenshot-placeholder">
+                        <img src="whatsapp.png" width="100%" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 13: Location -->
+            <div class="slide" data-slide="13">
+                <h2 class="slide-title">Step 11: Location &amp; Currency Setup</h2>
+                <div class="content">
+                    <div class="sections-grid">
+                        <div class="section-card">
+                            <h3>Configuration</h3>
+                            <ul>
+                                <li>Country/Region: Egypt</li>
+                                <li>Currency: Egyptian Pound (EGP)</li>
+                                <li>Time Zone: Cairo (GMT+03:00)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="note" style="margin-top: 24px; background: #FFE5E5; border-color: #FF5252;">
+                        ⚠️ Important: Cannot be changed after setup
+                    </div>
+                    <div class="screenshot-placeholder">
+                        <img src="timezone.png" width="100%" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 14: Payment -->
+            <div class="slide" data-slide="14">
+                <h2 class="slide-title">Step 12: Payment Configuration</h2>
+                <div class="content">
+                    <div class="sections-grid">
+                        <div class="section-card">
+                            <h3>Business Details</h3>
+                            <ul>
+                                <li>Location: Egypt</li>
+                                <li>Currency: Egyptian Pound (EGP)</li>
+                                <li>Tax ID/Address: Optional</li>
+                            </ul>
+                        </div>
+                        <div class="section-card">
+                            <h3>Payment Methods</h3>
+                            <ul>
+                                <li>VISA Card</li>
+                                <li>Fawry / فوري</li>
+                                <li>Local Cards</li>
+                                <li>Ad credits</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="note" style="margin-top: 24px; background: #E8F5E9; border-color: #4CAF50;">
+                        🔒 Secure payment storage
+                    </div>
+                    <div class="screenshot-placeholder">
+                        <img src="payment.png" width="100%" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 15: Publish -->
+            <div class="slide" data-slide="15">
+                <h2 class="slide-title">Ready to Publish!</h2>
+                <div class="content">
+                    <ul class="checklist">
+                        <li>Account setup complete</li>
+                        <li>Page created and verified</li>
+                        <li>Campaign objective selected</li>
+                        <li>Ad format and creative ready</li>
+                        <li>Copy and CTA configured</li>
+                        <li>Payment method added</li>
+                    </ul>
+                    <p class="ready-text">🚀 Click 'Publish' to launch! 🚀</p>
+                    <div class="note" style="margin-top: 24px;">
+                        📋 Reminder: Review Terms and Conditions
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 16: Summary -->
+            <div class="slide" data-slide="16">
+                <h2 class="slide-title">Key Takeaways</h2>
+                <div class="content">
+                    <ol class="takeaways-list">
+                        <li>Set up account with Page and phone verification</li>
+                        <li>Choose Awareness objective for brand reach</li>
+                        <li>Select appropriate ad format</li>
+                        <li>Optimize images for multiple placements</li>
+                        <li>Write compelling copy with clear CTA</li>
+                        <li>Enable WhatsApp for direct engagement</li>
+                        <li>Configure payment and launch campaign</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <div class="nav-buttons">
+                <button class="nav-btn" id="prevBtn" disabled>← Previous</button>
+                <button class="nav-btn" id="nextBtn">Next →</button>
+            </div>
+            <div class="slide-counter">
+                <span class="current" id="currentSlide">1</span> / <span id="totalSlides">16</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 16;
+        
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const currentSlideSpan = document.getElementById('currentSlide');
+        
+        function showSlide(n) {
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            slides[n - 1].classList.add('active');
+            currentSlideSpan.textContent = n;
+            
+            // Update button states
+            prevBtn.disabled = (n === 1);
+            nextBtn.disabled = (n === totalSlides);
+            
+            currentSlide = n;
+        }
+        
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                showSlide(currentSlide + 1);
+            }
+        }
+        
+        function prevSlide() {
+            if (currentSlide > 1) {
+                showSlide(currentSlide - 1);
+            }
+        }
+        
+        // Event listeners
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                prevSlide();
+            }
+        });
+        
+        // Click on slide to navigate
+        document.querySelector('.slide-container').addEventListener('click', (e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const halfWidth = rect.width / 2;
+            
+            // Don't interfere with button clicks
+            if (e.target.classList.contains('nav-btn')) {
+                return;
+            }
+            
+            if (clickX > halfWidth) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        });
+        
+        // Initialize
+        showSlide(1);
+    </script>
+</body>
+</html>
